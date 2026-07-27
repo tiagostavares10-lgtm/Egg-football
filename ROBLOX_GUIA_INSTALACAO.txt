@@ -1,0 +1,217 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║          🎮 GUIA COMPLETO - EGG FOOTBALL NO ROBLOX 🎮                       ║
+║                     INSTALAÇÃO E CONFIGURAÇÃO PASSO A PASSO                 ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════════
+📋 O QUE VAIS FAZER:
+═══════════════════════════════════════════════════════════════════════════════
+
+1. ✅ Abrir Roblox Studio
+2. ✅ Criar um novo jogo
+3. ✅ Desenhar o campo 3D
+4. ✅ Criar os ovos bonitos
+5. ✅ Adicionar os scripts Lua
+6. ✅ Testar o jogo!
+
+═══════════════════════════════════════════════════════════════════════════════
+PARTE 1️⃣: ABRIR ROBLOX STUDIO E CRIAR NOVO JOGO
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 PASSO 1: Abrir Studio
+   - Abre Roblox Studio
+   - Clica em "Create" (Criar)
+   - Clica em "New"
+   - Escolhe um template: "Baseplate" (mais simples)
+   - Clica "Create"
+
+═══════════════════════════════════════════════════════════════════════════════
+PARTE 2️⃣: DESENHAR O CAMPO DE FUTEBOL 3D
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 PASSO 2: Criar o campo (grama)
+   1. No lado esquerdo, encontra a aba "Model" (Modelo)
+   2. Clica em "Part" para inserir uma peça
+   3. Na janela de propriedades (direita):
+      - Name: "Field" (Campo)
+      - Size: X=200, Y=1, Z=120 (dimensões do campo)
+      - Position: X=0, Y=0, Z=0
+      - Color: Verde escuro (R=34, G=139, B=34)
+      - Material: Grass (Relva)
+
+📍 PASSO 3: Criar as linhas brancas (laterais)
+   1. Clica em "Part" novamente
+   2. Propriedades:
+      - Name: "LineTop"
+      - Size: X=200, Y=0.1, Z=2
+      - Position: X=0, Y=1.05, Z=-60
+      - Color: Branco (R=255, G=255, B=255)
+   
+   3. Repete para outras linhas:
+      - "LineBottom": Position Z=60
+      - "LineLeft": Size 2, 0.1, 120 | Position X=-100
+      - "LineRight": Size 2, 0.1, 120 | Position X=100
+
+📍 PASSO 4: Criar as áreas de gol (com cores diferentes)
+   1. Clica em "Part"
+   2. Propriedades:
+      - Name: "Goal1"
+      - Size: X=10, Y=30, Z=60
+      - Position: X=-95, Y=15, Z=0
+      - Color: Amarelo (R=255, G=255, B=0)
+      - Transparency: 0.7
+      - CanCollide: false (desativa colisão)
+   
+   3. Cria "Goal2" no lado oposto:
+      - Position: X=95, Y=15, Z=0
+
+═══════════════════════════════════════════════════════════════════════════════
+PARTE 3️⃣: CRIAR OS OVOS BONITOS 3D
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 PASSO 5: Criar o primeiro ovo (Team 1)
+   1. Clica em "Part"
+   2. Propriedades:
+      - Name: "EggTeam1"
+      - Shape: Ball (Esfera)
+      - Size: X=2, Y=2, Z=2
+      - Position: X=-50, Y=2, Z=0
+      - Color: Vermelho (R=255, G=107, B=107)
+      - Material: Plastic
+   
+   3. Agora adiciona brilho:
+      - Clica com direito no "EggTeam1" no lado esquerdo
+      - "Insert Object" → "Light"
+      - Propriedades da luz:
+        - Brightness: 1
+        - Range: 15
+
+📍 PASSO 6: Criar o segundo ovo (Team 2)
+   1. Clica em "Part"
+   2. Propriedades:
+      - Name: "EggTeam2"
+      - Shape: Ball
+      - Size: X=2, Y=2, Z=2
+      - Position: X=50, Y=2, Z=0
+      - Color: Azul (R=65, G=105, B=225)
+      - Material: Plastic
+   
+   3. Adiciona luz (mesmo procedimento acima)
+
+📍 PASSO 7: Criar a bola
+   1. Clica em "Part"
+   2. Propriedades:
+      - Name: "Ball"
+      - Shape: Ball
+      - Size: X=1, Y=1, Z=1
+      - Position: X=0, Y=5, Z=0
+      - Color: Branco (R=255, G=255, B=255)
+      - Material: SmoothPlastic
+      - CanCollide: true
+
+═══════════════════════════════════════════════════════════════════════════════
+PARTE 4️⃣: ADICIONAR OS SCRIPTS LUA
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 PASSO 8: Adicionar GameManager
+   1. No lado esquerdo, vai a "ServerScriptService"
+   2. Clica com direito → "Insert Object" → "Script"
+   3. Clica duplo no script que apareceu
+   4. Apaga tudo o que está lá
+   5. COPIA E COLA todo o conteúdo do arquivo: ROBLOX_GameManager.lua
+   6. Clica em "Save"
+
+📍 PASSO 9: Adicionar BallPhysics
+   1. Repete o passo 8
+   2. Cria um novo Script em ServerScriptService
+   3. COPIA E COLA todo o conteúdo do arquivo: ROBLOX_BallPhysics.lua
+
+📍 PASSO 10: Adicionar PlayerController
+   1. No lado esquerdo, vai a "StarterPlayer" → "StarterPlayerScripts"
+   2. Clica com direito → "Insert Object" → "LocalScript"
+   3. Clica duplo no script
+   4. Apaga tudo
+   5. COPIA E COLA todo o conteúdo do arquivo: ROBLOX_PlayerController.lua
+
+📍 PASSO 11: Adicionar MenuGui
+   1. No lado esquerdo, vai a "StarterPlayer" → "StarterPlayerGui"
+   2. Clica com direito → "Insert Object" → "LocalScript"
+   3. Clica duplo no script
+   4. Apaga tudo
+   5. COPIA E COLA todo o conteúdo do arquivo: ROBLOX_MenuGui.lua
+
+═══════════════════════════════════════════════════════════════════════════════
+PARTE 5️⃣: TESTAR O JOGO
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 PASSO 12: Executar o jogo
+   1. No topo, clica em "▶ Play" (Botão verde de play)
+   2. O jogo deve começar!
+   3. Vê se aparece o menu com os botões
+
+📍 PASSO 13: Controles
+   - W, A, S, D = Mover o ovo
+   - Clique Esquerdo = CHUTAR
+   - Clique Direito = PASSAR
+
+═══════════════════════════════════════════════════════════════════════════════
+PARTE 6️⃣: MELHORIAS (OPCIONAL)
+═══════════════════════════════════════════════════════════════════════════════
+
+Para deixar ainda MAIS BONITO:
+
+🎨 FUNDO COM GRADIENTE:
+   - Clica em "Lighting" (no lado esquerdo, aba Services)
+   - Muda a cor do "Ambient" para verde claro (R=100, G=200, B=100)
+   - Muda o "ClockTime" para 12 (meio-dia com boa iluminação)
+
+🏟️ ADICIONAR ESTÁDIO (opcional):
+   1. Cria paredes ao redor:
+      - 4 Partes retangulares grandes
+      - Color: Cinzento
+      - Posição: Ao redor do campo
+
+💡 ADICIONAR MAIS LUZES:
+   1. Clica com direito em "Lighting"
+   2. "Insert Object" → "Light"
+   3. Coloca em diferentes posições acima do campo
+
+═══════════════════════════════════════════════════════════════════════════════
+ERROS COMUNS E SOLUÇÕES
+═══════════════════════════════════════════════════════════════════════════════
+
+❌ Problema: "O script não carrega"
+✅ Solução: Verifica se copiaste TODO o código. Nada de truncar!
+
+❌ Problema: "O ovo não aparece"
+✅ Solução: Certifica-te que criaste uma Part com Shape: Ball
+
+❌ Problema: "Não consigo mover o ovo"
+✅ Solução: Verifica se o script PlayerController foi copiado para StarterPlayerScripts
+
+❌ Problema: "A bola não se move"
+✅ Solução: Certifica-te que a bola tem CanCollide: true
+
+═══════════════════════════════════════════════════════════════════════════════
+🚀 PRÓXIMOS PASSOS
+═══════════════════════════════════════════════════════════════════════════════
+
+Depois de ter tudo funcionando:
+
+1. Publica o jogo (File → Publish)
+2. Convida amigos para jogar multiplayer
+3. Melhora os gráficos (texturas, partículas)
+4. Adiciona som (goal sound, game over sound)
+5. Implementa ranking persistente
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✨ PARABÉNS! Acabaste de criar um jogo multiplayer no Roblox! ✨
+
+Para dúvidas, vê os arquivos:
+- ROBLOX_GameManager.lua
+- ROBLOX_PlayerController.lua
+- ROBLOX_BallPhysics.lua
+- ROBLOX_MenuGui.lua
+
+═══════════════════════════════════════════════════════════════════════════════
