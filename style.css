@@ -5,28 +5,255 @@
 }
 
 body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    font-family: Arial, sans-serif;
+    padding: 20px;
 }
 
 .container {
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* MENUS */
+.menu-screen {
+    display: none;
     text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-h1 {
-    color: white;
+.menu-screen.active {
+    display: block;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu-screen h1 {
+    font-size: 3em;
+    color: #667eea;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 1.3em;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     margin-bottom: 20px;
-    font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-canvas {
+.menu-btn {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.menu-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+}
+
+.menu-btn:active {
+    transform: translateY(-1px);
+}
+
+.back-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    background: #999;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.back-btn:hover {
+    background: #777;
+}
+
+/* JOGO */
+.game-screen {
+    display: none;
+}
+
+.game-screen.active {
+    display: block;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.team-score {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.team-name {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.team1-name {
+    color: #FF4444;
+}
+
+.team2-name {
+    color: #4444FF;
+}
+
+.score {
+    font-size: 2.5em;
+    min-width: 60px;
+}
+
+.timer {
+    font-size: 2em;
+    font-weight: bold;
+    color: #667eea;
+    min-width: 120px;
+}
+
+#gameCanvas {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
     border: 5px solid white;
+    border-radius: 10px;
     background: #2d5016;
-    cursor: crosshair;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin: 10px 0;
+}
+
+.game-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.shoot-btn {
+    background: linear-gradient(135deg, #FF6B6B 0%, #C92A2A 100%);
+}
+
+.pass-btn {
+    background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+}
+
+.control-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.control-btn:active {
+    transform: translateY(-1px);
+}
+
+.control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.game-info {
+    text-align: center;
+    color: white;
+    font-size: 1.1em;
+    margin-top: 10px;
+    min-height: 30px;
+}
+
+/* GAME OVER */
+#gameOverTitle {
+    font-size: 2.5em;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+#gameOverMessage {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#pointsChange {
+    font-size: 1.2em;
+    color: #764ba2;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .menu-screen {
+        padding: 30px 20px;
+    }
+
+    .menu-screen h1 {
+        font-size: 2em;
+    }
+
+    .game-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .game-controls {
+        flex-direction: column;
+    }
+
+    .control-btn {
+        width: 100%;
+    }
 }
